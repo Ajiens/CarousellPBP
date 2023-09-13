@@ -23,6 +23,10 @@ Kelas   :   PBP E
 
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+
+    ![ClientUser (1)](https://github.com/Ajiens/CarousellPBP/assets/124881916/12780284-485b-4f5d-a19d-0bbf4012059e)
+
+   
     Pertama, client atau user akan mengirimkan request. Request dapat berupa ketika user menekan button, atau yang lainnya. Kemudian request dari user tersebut akan ditangkap oleh HTTP Server. HTTP server ini dapat diimplementasikan dengan bermacam-macam bahasa. Sebelum masuk kedalam sistem web yang menggunakan Django, request dari HTTP Server telebih dahulu diterjemahkan oleh WSGI. Hal tersebut dilakukan supaya sistem Django tahu ada request yang dilakukan oleh user.
 
     Setelah itu, request akan memasuki sistem yang ada pada Django. Request kemudian akan dicek terlebuh dahulu dengan menggunakan request middleware. Request middleware ini akan memanipulasi request tersebut sebelum mencapai view. Setelah itu Django akan mengkonfigurasi routing yang ada didalam file urls.py. Setelah memeriksa yang ada didalam file urls.py,  Django akan mencocokan request berupa URL yang diterima sesuai yang ada pada file urls.py.
@@ -31,10 +35,10 @@ Kelas   :   PBP E
 
     Dari hasil ekstraksi data-data yang dibutuhkan, Django kemudian akan memnaggil file berupa .html untuk menampilkan tampilan yang sesuai dengan template html yang telah dibut. Kemudian akan di translate kembali menggunakan WSGI yang nantinya siap untuk ditampilkan oleh HTTP Server dan user dapat melihat sesuai dengan request yang diminta
 
-3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
+4. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
     Ya, aplikasi web yang menggunakan Django dapat berjalan tanpa menggunakan virtual environtment. Namun, hal tersebut sangat tidak disarakan karena beberapa sebab. Tujuan utama menggunakan virtual environtment ketika menggunakan Django adalah untuk memisahkan atau mengisolasi proyek yang sedang dikerjakan agar konflik antar versi python tidak terjadi. Karena jika hal tersebut terjadi karena tidak menggunakan virtual environtment akan menyebabkan masalah yang sulit untuk didiagnosis dan diperbaiki. Dengan melakukan isolasi ini juga akan membantu developer dalam menjaga kebersihan dan proyek dapat terorganisir dengan baik.
 
-4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
+5. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
     Pada dasarnya MVC, MVT, dan MVVM adalah rangkaian arsitektur yang digunakan untuk memisahkan antara visualisasi, pemrosesan, dan manajemen data untuk mengembangkan sebuah aplikasi
     
     ⦿ MVC (Model-View-Controller)
