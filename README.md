@@ -2,9 +2,8 @@ Nama    :   Alwan Takahashi Aditaman
 NPM     :   2206828853
 Kelas   :   PBP E
 
-==========================================================================================
-                                            Tugas 3
-==========================================================================================
+============================================ Tugas 3 ============================================
+
 
 1. Apa perbedaan antara form POST dan form GET dalam Django?
     POST : adalah sebuah request yang digunakan untuk mengirimkan data ke server. POST digunakan ketika data yang direquest ingin di ubah atau dimodifikasi kedalam database.
@@ -46,9 +45,24 @@ Kelas   :   PBP E
     ⦿  Mengakses kelima URL di poin 2 menggunakan Postman
     Untuk dapat mengakses database yang ada pada direktori ini, pertama yang dilakukan adalah menjalanlank virtual environtment dengan menggunakan env\Scripts\activate.bat. Setelah itu copy link local host dan memilih opsi GET untuk mengambil data didalam database dan menampilkannya. Untuk menampilkan datanya bisa menggunakan tampilan JSON maupun XML. Cara nya bisa menambahkan url berupa JSON atau XML, contoh: http://localhost:8000/json atau http://localhost:8000/xml. Jika ingin menampilkan data berdasarkan ID bisa menambahkan nomor ID setelah url tersebut. Contoh http://localhost:8000/json/1, artinya menampilkan data yang memiliki ID.
 
-==========================================================================================
-                                            Tugas 2
-==========================================================================================
+![Screenshot 2023-09-18 112126](https://github.com/Ajiens/CarousellPBP/assets/124881916/51fa6ff1-3fd5-4c39-bd6c-7efc928d40a1)
+(Mengakses template HTML -- http://localhost:8000)
+
+![Screenshot 2023-09-18 112142](https://github.com/Ajiens/CarousellPBP/assets/124881916/284b28b8-3568-436d-b127-ec64376771ab)
+(Mengakses data berformat JSON -- http://localhost:8000/json)
+
+![Screenshot 2023-09-18 112157](https://github.com/Ajiens/CarousellPBP/assets/124881916/74bb5f0a-f978-4f75-815b-8fff28752566)
+(Mengakses data by ID berformat JSON -- http://localhost:8000/json/1)
+
+![Screenshot 2023-09-18 112207](https://github.com/Ajiens/CarousellPBP/assets/124881916/bfc1f54c-a323-42aa-a5e1-c26c74ce58b3)
+(Mengakses data berformat XML --  http://localhost:8000/xml)
+
+![Screenshot 2023-09-18 112219](https://github.com/Ajiens/CarousellPBP/assets/124881916/6d1d1f46-1a64-4138-8824-840b8afc9239)
+(Mengakses data by ID berformat XML --  http://localhost:8000/xml/1 )
+
+
+
+============================================ Tugas 2 ============================================
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
     ⦿ Membuat sebuah proyek Django baru.
