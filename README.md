@@ -1,6 +1,54 @@
-Nama    :   Alwan Takahashi Aditama
+Nama    :   Alwan Takahashi Aditaman
 NPM     :   2206828853
 Kelas   :   PBP E
+
+==========================================================================================
+                                            Tugas 3
+==========================================================================================
+
+1. Apa perbedaan antara form POST dan form GET dalam Django?
+    POST : adalah sebuah request yang digunakan untuk mengirimkan data ke server. POST digunakan ketika data yang direquest ingin di ubah atau dimodifikasi kedalam database.
+    GET : adalah request yang digunakan untuk membaca atau mengembalikan data dari web server. GET digunakan ketika ingin menampilkan data yang diperoleh dari database system
+
+2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?
+    HTML (Hypertext Markup Language)
+    adalah sebuah bahasa yang digunakan untuk membuat template struktur website untuk memuat dan menampilkan konten-konten yang ingin ditampilkan kepada user. Secara garis besar, HTML berpean sebagai wadah dari setiap elemen-elemen yang ingin ditampilkan kepada user. Elemen-elemen tersebut dapat berupa data, gambar, text, ataupun video.
+    
+    XML (Extensible Markup Language)
+    Dalam pertukaran data, file dengan format XML membutuhkan XML DOM sebagai alat ekstraksi data yang ada didalam file tersebut. Dengan menggunakan XML DOM, struktur data yang ada didalam format XML akan dimanipulasi sehingga data-data yang ada dapat diestrak dan diakses serta dapat disimpan dalam suatu variabel. Namun, pengaksesan data harus diakses berdasarkan hirarki/tingkatan yang sama dengan file XML
+
+    JSON (JavaScript Objec Notation0)
+    Dalam pertukaran data, file dengan format JSON dapat diekstrak menjadi objek JavaScript. Proses ekstraksi ini dapat menggunakan fungsi JSON.parse() untuk menghubahnya menjadi objek JavaScript. Setelah mengekstraksi menjadi objek JavaScrpit, data-data yang ada dapat diakses berdasarkan key properti yang sama seperti yang ada pada file JSON tersebut.
+
+3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
+    Secara garis besar, penggunaan JSON lebih populer dalam pertukaran data dikarekanakn format yang digunakan JSON sederhana. Secara sintaks, file data yang berformat JSON mudah dibaca, baik untuk manusia maupun komputer. Selain itu, JSON juga dianggap lebih ringan dan mudah diproses oleh komputer dibandingkan menggunakan file berformat XML yang dikenal dengan sintaksisnya cukup rumit dan perlu menggunakan XML DOM untuk mengesktraksinya.
+
+4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+
+    ⦿   Membuat input form untuk menambahkan objek model pada app sebelumnya.
+    
+    Pertama yang perlu dilakukan adalah membuat file dengan nama forms.py. File ini berfungsi untuk menerima input dari user berupa data. Pada file ini perlu mendefinisikan fields sesuai dengan data apa yang dibutuhkan dari user. Dari field tersebut juga perlu mendefinisikan dimana tempat menyimpan tiap input yang dimasukan oleh user. Oleh sebab itu, pada file models.py juga perlu di sesuaikan dengan input dari user dengan mendefinisikan variabel untuk tempat menyimpan input dari user.
+
+    Untuk membuat form field yang dapat dilihat dan diisi oleh user, kita perlu menambahkan template html yang dapat menampilkan form field tersebut. Dalam membuat halaman html yang berisi form field, perlu adanya tombol yang executeable untuk mensubmit/menyimpan data yang dimasukan oleh user. Tombol tersebut harus dapat mengirimkan request untuk melakukan penyimpanan data. Dalam hal ini, tombol yang di pencet harus mengirimkan request ke view. Nantinya file views.py akan melakkuan penyimpanan kedalam database dengan menggunakan method .save()
+
+    ⦿   Tambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+
+    Untuk melihat objek apa saja yang sudah ditambahkan dalam format tertentu, pertama yang dilakukan adalah dengan mengambil data yang ada di data base. Hal yang dapat dilakukan adalah dengan memanggil fungsi Product.objects.all() dan menyimpannya kedalam variabel. Fungsi ini adalah fungsi yang bertujuan untuk mengambil semua objek yang sudah ditambahkan didalam database. Setelah data diambil, web server perlu meresponnya dengan fungsi HttpResponse(). Akan tetapi, sebelum melakukan itu perlu adanya prosesn translate objek menjadi format lain yang diinginkan (JSON/XML/dll) dengan menggunakan fungsi seriliaze() dari serializers.
+
+    Untuk melakukan pemanggilan objek by ID dapat dilakukan hal yang sama. Akan tetapi data yang diambil hanya dipanggil berdasarkan ID yang diminta, yaitu dengan menggunakan fungsi Product.objects.filter(pk=id)
+
+    ⦿   Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
+    Untuk melihat objek apa saja yang di input, perlu url yang bersesuain padda file urls.py didalam list urlspatterns. Sebagai contoh jika ingin menampilkan data by id dengan format json perlu menambahkan baris kdode dibawh ini:
+            path('json/<int:id>/', show_json, name='show_json')
+    Sesuaikan jika ingin menampilkan semua data dengan format XML
+
+    ⦿  Mengakses kelima URL di poin 2 menggunakan Postman
+    Untuk dapat mengakses database yang ada pada direktori ini, pertama yang dilakukan adalah menjalanlank virtual environtment dengan menggunakan env\Scripts\activate.bat. Setelah itu copy link local host dan memilih opsi GET untuk mengambil data didalam database dan menampilkannya. Untuk menampilkan datanya bisa menggunakan tampilan JSON maupun XML. Cara nya bisa menambahkan url berupa JSON atau XML, contoh: http://localhost:8000/json atau http://localhost:8000/xml. Jika ingin menampilkan data berdasarkan ID bisa menambahkan nomor ID setelah url tersebut. Contoh http://localhost:8000/json/1, artinya menampilkan data yang memiliki ID.
+
+==========================================================================================
+                                            Tugas 2
+==========================================================================================
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
     ⦿ Membuat sebuah proyek Django baru.
