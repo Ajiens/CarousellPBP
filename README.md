@@ -2,58 +2,58 @@ Nama    :   Alwan Takahashi Aditaman
 NPM     :   2206828853
 Kelas   :   PBP E
 
-==========================================================================================
+========================================================================================== <br />
                                             Tugas 4
-==========================================================================================
-1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
-    UserCreationForm adalah sebuah template field yang dapat langsung digunakan untuk membuat atau user baru ketika ingin memasuki sebuah website.
+========================================================================================== <br />
+1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya? <br />
+    UserCreationForm adalah sebuah template field yang dapat langsung digunakan untuk membuat atau user baru ketika ingin memasuki sebuah website. <br />
     Kelebihan:
-        * Mudah untuk dipakai karena tidak perlu menulis ulang kode
-        * Mempunyai default format field yang sangat berguna untuk memperkuat keamanan dari data pengguna, seperti aturan dalam membuat password.
-        * Mempunyai fitur untuk memvalidasi dalam pembuatan password
-        * Dapat mengkostumisasi tampilan dari default form field dengan menggunakan html dan css
-    Kekurangan:
-        * Hanya memiliki tiga fieldutama formulir, yaitu usernam, email, dan password. Oleh karena itu usercreationform cocok digunakan untuk menangani hal yang umum dalam pembuatan id user
+        * Mudah untuk dipakai karena tidak perlu menulis ulang kode <br />
+        * Mempunyai default format field yang sangat berguna untuk memperkuat keamanan dari data pengguna, seperti aturan dalam membuat password. <br />
+        * Mempunyai fitur untuk memvalidasi dalam pembuatan password <br />
+        * Dapat mengkostumisasi tampilan dari default form field dengan menggunakan html dan css <br />
+    Kekurangan: <br />
+        * Hanya memiliki tiga fieldutama formulir, yaitu usernam, email, dan password. Oleh karena itu usercreationform cocok digunakan untuk menangani hal yang umum dalam pembuatan id user <br />
         * Secara default, tampilan yang diberikan hanya tampilan standar dan perlu mengedit dan mengkustomisasi jika mengingkan tampilan yang bagus
-        
-2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
-    Autentikasi
+ <br />
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting? <br />
+    **Autentikasi** <br />
         Autentikasi adalah proses dibalik layar yang bertujuan untuk memverifikasi input dari user yang mencoba mengklaim identitas dirinya untuk masuk kedalam sebuah sistem. Tujuannya adalah untuk memeriksa input dari user tersebut, apakah data yang dimasukan cocok dengan data yang sudah tervalidasi untuk masuk kedalam sistem.
-    Otorisasi
+    **Otorisasi**  <br />
         Otorisasi adalah proses pembagian kewenangan kepada tiap-tiap penggunanya dalam mengakses sistem. Tujuannya adalah untuk membatasi interaksi-interaksi dari user yang tidak diizinkan agar tidak merusak sistem vital.
-        
+    <br />
     Secara garis besar, autentikasi digunakan untuk memverifikasi input dan otorisasi adalah untuk membagi kewenangan dalam mengakses sistem. Autentikasi dan otorisaai adalah dua hal yang sangat penting keberadaanya. Autentikasi berperdan dalam menjaga keamanan sistem dan otorisasi berperan dalam mengontrol segal aktifitas pengguna setelah berhasil masuk kedalam sistem. Sehingga dapat dikatakan kedua hal ini adalah dua hal yang saling berksinambungan dalam menjaga sebuah website yang dibuat.
-
+ <br />
 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
     Cookies adalah mekainisme dalam website yang diperuntukan untuk menyimpan informasi dari pengguna yang ukurannya kcil. Keberadaan cookie dalam ini digunakan untuk mengingat dan menampung sementara identitas dari user yang berhasil masuk kedalam sistem untuk tetap berada didalam sistem tanpa harus mengauntentikasinya lagi.
 
     Untuk menggunakan cookies dalam mengelola data sesi pengguna, pertama yang dilakukan adalah saat pengguna pertama kali berhasil masuk kedalam sistem Django mengirimkan sebuah unik ID serta informasi sesi lainnya yang kemudian disimpan dipihak user. Unik ID akan digunakan oleh sistem setiap kali request auntentikasi diperlukan, sehingga user tidak perlu login dan mengautentikasi terus menerus setiap kali sistem mengirimkan sinyal request autentikasi.
-
+ <br />
 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
-    Penggunaan Cookie secara general adalah menyimpan data user yang digunakan untuk mengakses suati sistem. Dengan menggunakan cookie yang dapat mengakses sebuah sistem cookie tersebut memungkinkan disalahgunakkan jika cookie tidak dilakukan dengan baik. Beberapa risiko yang dapat terjadi antara lain:
-    * Ketika Cookie tidak dilakukan pengamanan yang baik, cookie dapat dimanfaatkan peretas untuk mengakses masuk kedalam sistem sebagai pengguna yang sah dan memungkinkan pencurian data sensitif dari pengguna tersebut.
+    Penggunaan Cookie secara general adalah menyimpan data user yang digunakan untuk mengakses suati sistem. Dengan menggunakan cookie yang dapat mengakses sebuah sistem cookie tersebut memungkinkan disalahgunakkan jika cookie tidak dilakukan dengan baik. Beberapa risiko yang dapat terjadi antara lain: <br />
+    * Ketika Cookie tidak dilakukan pengamanan yang baik, cookie dapat dimanfaatkan peretas untuk mengakses masuk kedalam sistem sebagai pengguna yang sah dan memungkinkan pencurian data sensitif dari pengguna tersebut. <br />
     * Jika menggunakan presistent cookie yang menyimpan cookie di pihak user dan cookie tersebut dapat bertahan dalam waktu yang cukup panjang dapat membahayakan privasi dari user tersebut. Karena dengan menggunakan presistent cookie yang tidak diatur dengan benar memungkinkan peretas untuk menggunakan cookie tersebut untuk mengakes data yang sensitif
-
-5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
-    ⦿     Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna   untuk mengakses aplikasi sebelumnya dengan lancar.
+ <br />
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial) <br />
+    ⦿     **Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna   untuk mengakses aplikasi sebelumnya dengan lancar.** <br />
         Untuk membuat registrasi form, kita dapat menggunakan UserCreationForm. UserCreationForm adalah modul bawaan yang dimiliki Django yang dapat memudahkan developer untuk membuat registrasi form tanpa menulis kode dari awal. Untuk dapat membuat user, requirement HTTP yang dibutuhkan adalah POST, yang mana requirement ini mengirimkan data ke server yang kemudian akan disimpan didalam database. Selain itu, kita juga perlu memvalidasi input dari field yang diisi oleh user sebelum melakukan perubahan/penyimpanan pada database. Untuk mengimplementasinya, perlu dibuat file.html sebagai template penampilan dan menghubungkannya dengan menambahkan path pada file urls.py
-
+         <br />
         Untuk membuat login kita perlu menggunakan field apa saja yang dibutuhkan. Dalam kode saya, saya hanya menggunakan field usernam dan password. Username dan password kemudian akan di autentikasi, apakah username dan password sudah bersesuian dengan database atau belum. Dalam mengautentikasi, saya menggunakan method bawaan yang diberikan oleh Django. Lalu untuk logout, saya hanya perlu menambahkan tombol logout didalam sistem. Tombol logout ini akan mengirimkan request untuk untuk keluar dari sistem dan kembali ke halaman login.
-
-    ⦿   Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+     <br />
+    ⦿   **Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
         Untuk dapat melakukan ini kita harus menmberikan requirement HTTP berupa POST. Namun sebelum itu kita harus memvalidasi input dari user agar seseuai dengan environtment database yang sudah kita buat sebelumnya. Sehingga setelah itu kita dapat mengirimkan requiremnt HTTP berupa POST tadi kedalam database.
-    
-    ⦿   Menghubungkan model Item dengan User
+     <br />
+    ⦿  **Menghubungkan model Item dengan User**
         Untuk menampilkan produk yang sesuai dengan user tertentu kita dapat menggunakan bantuan ForeignKey. ForeignKey ini yang kemudian akan menjadi penghubung antara item/product dengan user yang menambahkan item/product tersebut. Dalam sistem database, setiap user mempunyai key/id yang sifatnya unik. Ketika produk dibuat dengan user tersebut, didalam database produk tersebut akan menyimpan key yang sifatnya unik dari user tersebut. Sehingga unik key pada produk yang akan menjadi penghubung antara user dengan item/productnya.
-
+         <br />
         Untuk mengimplementasikannya, kita dapat menggunakan "user = models.ForeignKey(User, on_delete=models.CASCADE)". Kode tersebut akan membuat column khusus yang menyimpan unique key dari user tersebut. Lalu ketika user membuat produk/item baru field user akan diisi dengan objek User dari return value request.user yang sedang terotorisasi untuk menandakan bahwa objek tersebut dimiliki oleh pengguna yang sedang login. Lalu untuk menampilkan produk yang terotrisasi tersebut kita dapat memfilternya dengan products = Product.objects.filter(user=request.user.id) agar produk/item yang ditampilkan seseuai dengan user id nya
-
-    ⦿   Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+     <br />
+    ⦿   **Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
         Untuk dapat mengimplementasikan ini, pertama yang kita lakukan adalah untuk mengeset cookie yang kita inginkan. Kita dapat mengeset cookie dengan menggunakan "response.set_cookie('last_login', str(datetime.datetime.now()))". Waktu yang tepat untuk mengeset cookie seperti ini adalah ketika user berhasil login dan masuk kedalam sistem. Kemudian jika kita mengiginkan untuk menampilkan cookie yang diset tersebut kita dapat menggunakan perintah request.COOKIES.get['last_login']. Lalu jangan lupa untuk menghapus cookie tersebut ketika pengguna logout/keluar dari sistem
 
-==========================================================================================
+========================================================================================== <br />
                                             Tugas 3
-==========================================================================================
+========================================================================================== <br />
 
 1. Apa perbedaan antara form POST dan form GET dalam Django?
     POST : adalah sebuah request yang digunakan untuk mengirimkan data ke server. POST digunakan ketika data yang direquest ingin di ubah atau dimodifikasi kedalam database.
@@ -95,9 +95,9 @@ Kelas   :   PBP E
     ⦿  Mengakses kelima URL di poin 2 menggunakan Postman
     Untuk dapat mengakses database yang ada pada direktori ini, pertama yang dilakukan adalah menjalanlank virtual environtment dengan menggunakan env\Scripts\activate.bat. Setelah itu copy link local host dan memilih opsi GET untuk mengambil data didalam database dan menampilkannya. Untuk menampilkan datanya bisa menggunakan tampilan JSON maupun XML. Cara nya bisa menambahkan url berupa JSON atau XML, contoh: http://localhost:8000/json atau http://localhost:8000/xml. Jika ingin menampilkan data berdasarkan ID bisa menambahkan nomor ID setelah url tersebut. Contoh http://localhost:8000/json/1, artinya menampilkan data yang memiliki ID.
 
-==========================================================================================
+========================================================================================== <br />
                                             Tugas 2
-==========================================================================================
+========================================================================================== <br />
 
 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
     ⦿ Membuat sebuah proyek Django baru.
