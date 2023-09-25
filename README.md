@@ -3,6 +3,36 @@ NPM     :   2206828853
 Kelas   :   PBP E
 
 ==========================================================================================
+                                            Tugas 4
+==========================================================================================
+1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+    UserCreationForm adalah sebuah template field yang dapat langsung digunakan untuk membuat atau user baru ketika ingin memasuki sebuah website.
+    Kelebihan:
+        * Mudah untuk dipakai karena tidak perlu menulis ulang kode
+        * Mempunyai default format field yang sangat berguna untuk memperkuat keamanan dari data pengguna, seperti aturan dalam membuat password.
+        * Mempunyai fitur untuk memvalidasi dalam pembuatan password
+        * Dapat mengkostumisasi tampilan dari default form field dengan menggunakan html dan css
+    Kekurangan:
+        * Hanya memiliki tiga fieldutama formulir, yaitu usernam, email, dan password. Oleh karena itu usercreationform cocok digunakan untuk menangani hal yang umum dalam pembuatan id user
+        * Secara default, tampilan yang diberikan hanya tampilan standar dan perlu mengedit dan mengkustomisasi jika mengingkan tampilan yang bagus
+        
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+    Autentikasi
+        Autentikasi adalah proses dibalik layar yang bertujuan untuk memverifikasi input dari user yang mencoba mengklaim identitas dirinya untuk masuk kedalam sebuah sistem. Tujuannya adalah untuk memeriksa input dari user tersebut, apakah data yang dimasukan cocok dengan data yang sudah tervalidasi untuk masuk kedalam sistem.
+    Otorisasi
+        Otorisasi adalah proses pembagian kewenangan kepada tiap-tiap penggunanya dalam mengakses sistem. Tujuannya adalah untuk membatasi interaksi-interaksi dari user yang tidak diizinkan agar tidak merusak sistem vital.
+        
+    Secara garis besar, autentikasi digunakan untuk memverifikasi input dan otorisasi adalah untuk membagi kewenangan dalam mengakses sistem. Autentikasi dan otorisaai adalah dua hal yang sangat penting keberadaanya. Autentikasi berperdan dalam menjaga keamanan sistem dan otorisasi berperan dalam mengontrol segal aktifitas pengguna setelah berhasil masuk kedalam sistem. Sehingga dapat dikatakan kedua hal ini adalah dua hal yang saling berksinambungan dalam menjaga sebuah website yang dibuat.
+
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+    Cookies adalah mekainisme dalam website yang diperuntukan untuk menyimpan informasi dari pengguna yang ukurannya kcil. Keberadaan cookie dalam ini digunakan untuk mengingat dan menampung sementara identitas dari user yang berhasil masuk kedalam sistem untuk tetap berada didalam sistem tanpa harus mengauntentikasinya lagi.
+
+    Untuk menggunakan cookies dalam mengelola data sesi pengguna, pertama yang dilakukan adalah saat pengguna pertama kali berhasil masuk kedalam sistem Django mengirimkan sebuah unik ID serta informasi sesi lainnya yang kemudian disimpan dipihak user. Unik ID akan digunakan oleh sistem setiap kali request auntentikasi diperlukan, sehingga user tidak perlu login dan mengautentikasi terus menerus setiap kali sistem mengirimkan sinyal request autentikasi.
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+
+
+==========================================================================================
                                             Tugas 3
 ==========================================================================================
 
