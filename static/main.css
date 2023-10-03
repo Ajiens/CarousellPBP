@@ -1,0 +1,15 @@
+.navbar-header-text{
+    color: black;
+    font-size: 20px;
+}
+
+.logo-fasilkom{
+    display: flex;
+    align-items: center;
+    width: 50px;
+}
+
+#navbar-user{
+    font-size: 20px;
+    font-weight: 500;
+}

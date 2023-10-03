@@ -1,0 +1,14 @@
+.custom-circle {
+    border-radius: 100%;
+    width: 30px; /* Ubah lebar sesuai kebutuhan Anda */
+    height: 30px; /* Ubah tinggi sesuai kebutuhan Anda */
+    background-color: red; /* Ganti warna latar belakang sesuai keinginan Anda */
+    color: black; /* Ganti warna teks sesuai keinginan Anda */
+    /* Gaya lain yang Anda inginkan */
+}
+
+.logo-fasilkom{
+    width: 30px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}

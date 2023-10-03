@@ -38,20 +38,19 @@
     </div>
 </nav>
 
-<div class="all-product d-flex flex-wrap align-content-start gap-4">
-    {% for product in products %}
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'pictures/product1.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-harga">Rp.{{product.amount}}</p>
-          <p class="card-text">{{product.description}}</p>
-          <a href="#" class="btn btn-primary" style="width: 100%;">Beli Sekarang</a>
-        </div>
-    </div>
-    {% endfor %}
-</div>
+<h1>Edit Product</h1>
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Edit Product"/>
+            </td>
+        </tr>
+    </table>
+</form>
 
-{% endblock content %}
+{% endblock %}

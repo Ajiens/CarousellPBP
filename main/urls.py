@@ -6,7 +6,10 @@ app_name = 'main'
 
 urlpatterns = [
     path('', show_main, name='show_main'),
+    path('show_data_product', show_data_product, name='show_data_product'),
     path('create_product', create_product, name='create_product'),
+    path('edit-product/<int:id>', edit_product, name='edit_product'),
+    path('delete/<int:id>', delete_product, name='delete_product'),
     path('xml/', show_xml, name='show_xml'),
     path('json/', show_json, name='show_json'),
     path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),

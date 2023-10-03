@@ -28,7 +28,7 @@ def create_product(request):
     return render(request, "create_product.html", context)
 
 def show_main(request):
-    products = Product.objects.filter(user=request.user.id)
+    products = Product.objects.all()
     last_login = request.COOKIES.get('last_login', '')
     context = {
         'name': request.user.username,
@@ -38,6 +38,41 @@ def show_main(request):
     }
 
     return render(request, "main.html", context)
+
+def show_data_product(request):
+    products = Product.objects.filter(user=request.user.id)
+    last_login = request.COOKIES.get('last_login', '')
+    context ={
+        'name': request.user.username,
+        'class': 'PBP E', # Kelas PBP kamu
+        'products': products,
+        'last_login': last_login,
+    }
+
+    return render(request, "show_data_product.html", context)
+
+def edit_product(request, id):
+    # Get product berdasarkan ID
+    product = Product.objects.get(pk = id)
+
+    # Set product sebagai instance dari form
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        # Simpan form dan kembali ke halaman awal
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    # Get data berdasarkan ID
+    product = Product.objects.get(pk = id)
+    # Hapus data
+    product.delete()
+    # Kembali ke halaman awal
+    return HttpResponseRedirect(reverse('main:show_data_product'))
 
 def register(request):
     form = UserCreationForm()

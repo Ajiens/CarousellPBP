@@ -3,7 +3,7 @@
 
 {% block meta %}
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="{% static 'show_data_product.css' %}">
 {% endblock meta %}
 
 {% block content %}
@@ -36,21 +36,42 @@
             </ul>
         </li>
     </div>
+
 </nav>
 
-<div class="all-product d-flex flex-wrap align-content-start gap-4">
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Date Added</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
     {% for product in products %}
-    <div class="card" style="width: 18rem;">
-        <img src="{% static 'pictures/product1.jpg' %}" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-harga">Rp.{{product.amount}}</p>
-          <p class="card-text">{{product.description}}</p>
-          <a href="#" class="btn btn-primary" style="width: 100%;">Beli Sekarang</a>
-        </div>
-    </div>
+    <tbody class="item-{% if forloop.last %}baris-akhir{% endif %}">
+        
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.date_added }}</td>
+                <td>
+                    <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary btn-sm">
+                        Edit
+                    </a>
+                    <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+    </tbody>
     {% endfor %}
-</div>
+</table>
+
+
+    <br />
 
     <h5>Sesi terakhir login: {{ last_login }}</h5>
 
