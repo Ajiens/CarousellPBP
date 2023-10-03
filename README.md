@@ -1,10 +1,42 @@
-Nama    :   Alwan Takahashi Aditaman
-NPM     :   2206828853
-Kelas   :   PBP E
+Nama    :   Alwan Takahashi Aditaman <br>
+NPM     :   2206828853 <br>
+Kelas   :   PBP E <br>
 
-========================================================================================== <br />
+================================== Tugas 5 ===============================================
+1.  Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+  **Universal Selector**
+    Dengan menggunakan tanda * dalam formatting css, maka semua konten yang ada di html akan berubah.
+    **Type Selector**
+    sebuah tag langsung di spesifikkan bagaimana keinginan stylenya. Sehingga ketika melakukan styling desain yang berlaku akan diterapkan pada semua tag yang ada
+   **Class Selector**
+    Sebuah tag dapat dikelompokan berdasarkan nama class yang dibuat untuk diubah style nya. Hampir sama dengan istilah grouping. Anak dari kelas yang didefinisikan juga bisa di tentukan sendiri.
+    **ID Selector**
+    Sesuai dengan namanya, id seelector dapat ditargetkan secara mandiri untuk di styling di CSS. dan memberikan entitas yang eksklusif dalam stylingnya. Contoh sebuah kata
+    **Child Selector**
+    Dengan menggunakan tanda >. Contoh penggunaannya seperti ini: <tag_A> > <tag_B> artinya <tag B> merupakan anak dari <tag A>. Maksut dari kata anak dari adalah <tag B> harus berada didalam <tag A>.
+    **Decendent Selector**
+    Sama halnya dengan child selector, tapi ini tidak membutuhkan tanda > maupun tanda lainnya, jadi hanya spasi saja. Contoh penggunannya seperti ini: tag_A tag_Z. Prinsipnya sama dengan Child Selector, namun Decendent Selector ini bisa melangkah, seperti tag_A>...>tag_Z. Tidak peduli isi dari tag di titik-titik itu apa, asalkan tag_Z berada didalam tag_A.
+    **Adjacent Sibling Selector (First Child)**
+    Dengan menggunakan tanda +. Contoh penggunaannya seperti ini: <tag_A> + <tag_B> artinya cari <tag B> yang sesudah <tag A>, maka itu yang di select.
+    **General Sibling selector (all child)**
+    Kebalikannya dengan Adjacent Sibling Selector. Dia bisa menggunakan tanda ~. Contoh penggunaannya seperti ini: <tag_A> ~ <tag_B> artinya cari <tag B> yang setelah <tag A>, maka itu yang di select.
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+   Tag b ("<b>") -> Memberikan efek bold
+   Tag strong ("<strong>") -> memberikan efek seolah-olah important text
+   Tag i ("<i>") -> memberikan efek tulisan miring
+   Tag mark ("<mark>") -> memberi efek highlight pada text
+   Tag heading ("<h1>") -> memberikan efek tulisan besar layakknya judul
+   Tag list ("<list>") -> memberikan bullet untuk mengelist
+   Tag table ("<table>") -> untuk membuat table
+   Tag input ("<input>") -> untuk memberikan field input
+
+3. Jelaskan perbedaan antara margin dan padding.
+   Margin adalah jarak antara element satu dengan element yang lainnya. Padding adalah jarak antara element dan batasan containernya
+   
+========================================================================================== <br>
                                             Tugas 4
-========================================================================================== <br />
+========================================================================================== <br>
 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya? <br />
     UserCreationForm adalah sebuah template field yang dapat langsung digunakan untuk membuat atau user baru ketika ingin memasuki sebuah website. <br />
     Kelebihan:
