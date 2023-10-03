@@ -4,35 +4,51 @@ Kelas   :   PBP E <br>
 
 ================================== Tugas 5 ===============================================
 1.  Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya. <br>
-    **Universal Selector**
+    **Universal Selector** ->
     Dengan menggunakan tanda * dalam formatting css, maka semua konten yang ada di html akan berubah.
-    <br>**Type Selector**
+    <br>**Type Selector** ->
     sebuah tag langsung di spesifikkan bagaimana keinginan stylenya. Sehingga ketika melakukan styling desain yang berlaku akan diterapkan pada semua tag yang ada
-   <br>**Class Selector**
+   <br>**Class Selector** ->
     Sebuah tag dapat dikelompokan berdasarkan nama class yang dibuat untuk diubah style nya. Hampir sama dengan istilah grouping. Anak dari kelas yang didefinisikan juga bisa di tentukan sendiri.
-    <br>**ID Selector**
+    <br>**ID Selector** ->
     Sesuai dengan namanya, id seelector dapat ditargetkan secara mandiri untuk di styling di CSS. dan memberikan entitas yang eksklusif dalam stylingnya. Contoh sebuah kata
-    <br>**Child Selector**
+    <br>**Child Selector** ->
     Dengan menggunakan tanda >. Contoh penggunaannya seperti ini: <tag_A> > <tag_B> artinya <tag B> merupakan anak dari <tag A>. Maksut dari kata anak dari adalah <tag B> harus berada didalam <tag A>.
-    <br>**Decendent Selector**
+    <br>**Decendent Selector** ->
     Sama halnya dengan child selector, tapi ini tidak membutuhkan tanda > maupun tanda lainnya, jadi hanya spasi saja. Contoh penggunannya seperti ini: tag_A tag_Z. Prinsipnya sama dengan Child Selector, namun Decendent Selector ini bisa melangkah, seperti tag_A>...>tag_Z. Tidak peduli isi dari tag di titik-titik itu apa, asalkan tag_Z berada didalam tag_A.
-    <br>**Adjacent Sibling Selector (First Child)**
+    <br>**Adjacent Sibling Selector (First Child)** ->
     Dengan menggunakan tanda +. Contoh penggunaannya seperti ini: <tag_A> + <tag_B> artinya cari <tag B> yang sesudah <tag A>, maka itu yang di select.
-    <br>**General Sibling selector (all child)**
+    <br>**General Sibling selector (all child)** ->
     Kebalikannya dengan Adjacent Sibling Selector. Dia bisa menggunakan tanda ~. Contoh penggunaannya seperti ini: <tag_A> ~ <tag_B> artinya cari <tag B> yang setelah <tag A>, maka itu yang di select.
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
-   Tag b ```("<b>")``` -> Memberikan efek bold
-   Tag strong ```("<strong>")``` -> memberikan efek seolah-olah important text
-   Tag i ```("<i>")``` -> memberikan efek tulisan miring
-   Tag mark ```("<mark>")``` -> memberi efek highlight pada text
-   Tag heading ```("<h1>")``` -> memberikan efek tulisan besar layakknya judul
-   Tag list ```("<list>")``` -> memberikan bullet untuk mengelist
-   Tag table ```("<table>")``` -> untuk membuat table
-   Tag input ```("<input>")``` -> untuk memberikan field input
+   - Tag b ```("<b>")``` -> Memberikan efek bold
+   - Tag strong ```("<strong>")``` -> memberikan efek seolah-olah important text
+   - Tag i ```("<i>")``` -> memberikan efek tulisan miring
+   - Tag mark ```("<mark>")``` -> memberi efek highlight pada text
+   - Tag heading ```("<h1>")``` -> memberikan efek tulisan besar layakknya judul
+   - Tag list ```("<list>")``` -> memberikan bullet untuk mengelist
+   - Tag table ```("<table>")``` -> untuk membuat table
+   - Tag input ```("<input>")``` -> untuk memberikan field input
 
-3. Jelaskan perbedaan antara margin dan padding.
+3. Jelaskan perbedaan antara margin dan padding. <br>
    Margin adalah jarak antara element satu dengan element yang lainnya. Padding adalah jarak antara element dan batasan containernya
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+   <br>Tailwind CSS adalah framework CSS yang berfokus pada pendekatan "utility-first," yang mana dalam membangun tampilan dilakukan dengan menggabungkan kelas-kelas kecil untuk mengatur gaya elemen. Bootstrap, yang juga merupakan framework CSS yang membangun tampilan website dengan menyediakan kumpulan komponen dan gaya yang telah ditentukan sebelumnya, yang memungkinkan pengembangan web yang lebih cepat tetapi mungkin kurang fleksibel dalam kustomisasi. Tailwind memberikan lebih banyak kendali atas desain dan memungkinkan tampilan yang lebih unik, sementara Bootstrap cocok untuk proyek-proyek yang membutuhkan tampilan konsisten dan pengembangan yang cepat. <br>
+   - Kondisi Menggunakan Bootstrap:
+      * Ketika membutuhkan pengembangan yang cepat dan tampilan yang umum dan konsisten karena Bootstrap sudah menyediakan komponennya.
+      * Ketika tidak ingin terlalu banyak berurusan dengan desain kustom dan ingin menggunakan komponen yang telah ditentukan sebelumnya.
+      * Ketika ingin menggunakan tampilan dalam bentuk yang universal dan siap pakai
+     
+   - Kapan Sebaiknya Menggunakan Tailwind CSS:
+        * Ketika ingin memiliki kendali penuh atas desain dan tampilan website yang diinginkan
+        * Ketika menginginkan tampilan yang unik dan tidak ingin terbatas oleh desain yang telah ditentukan sebelumnya.
+        * Jika mengiginkan tampilan yang bagus namun hanya membutuhkan size yang kecil
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+   <br> Untuk melakukan styling yang perlu kita lakukan adalah dengan menghubungkan antara html dan stylernya, dapat berupa tailwind, bootstrap, javasrcipt, maunpun file css. Saya menggunakan bootstrap dan CSS untuk melakukan styling pada halaman saya. Untuk menambahkan bootstrap kita hanya perlu menambahkan baris kode ```<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">```. Baris kode tersebut akan langsung terhubung dengan bootstrap, dan bootstrap dapat langsung  dapat digunakan didalam html. Untuk menambahkan CSS saya perlu menambahkan folder static pada folder templates. Folde static ini berfungsi untuk menyimpan file.css yang diperlukan, nantinya file.css akan dipanggil seseuai dengan kebutuhan didalam html. Untuk menghubungkannya ke css kita perlu menambahkan baris kode ```<link rel="stylesheet" href="{% static 'main.css' %}">```. Setelah itu css dapat digunakan. Untuk dapat menggunakan css kita perlu melakukan penunjukan, bisa menggunakan nama class, id, maupun tag html nya.
+   
    
 ========================================================================================== <br>
                                             Tugas 4
