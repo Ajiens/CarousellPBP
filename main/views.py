@@ -1,7 +1,7 @@
 import datetime
 
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponseNotFound
 from main.forms import ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
@@ -11,6 +11,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+
+from django.views.decorators.csrf import csrf_exempt
 
 from main.models import Product
 
@@ -50,6 +52,29 @@ def show_data_product(request):
     }
 
     return render(request, "show_data_product.html", context)
+
+def get_product_json(request):
+    product_item = Product.objects.all()
+    return HttpResponse(serializers.serialize('json', product_item))
+
+def get_product_json_byID(request):
+    product_item_byid = Product.objects.filter(user=request.user.id)
+    return HttpResponse(serializers.serialize('json', product_item_byid))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Product(name=name, amount=amount, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
 
 def edit_product(request, id):
     # Get product berdasarkan ID

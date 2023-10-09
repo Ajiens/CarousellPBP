@@ -49,30 +49,76 @@
             <th>Actions</th>
         </tr>
     </thead>
-    {% for product in products %}
-    <tbody class="item-{% if forloop.last %}baris-akhir{% endif %}">
+    <tbody id="product_table">
         
-            <tr>
-                <td>{{ product.name }}</td>
-                <td>{{ product.amount }}</td>
-                <td>{{ product.description }}</td>
-                <td>{{ product.date_added }}</td>
-                <td>
-                    <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary btn-sm">
-                        Edit
-                    </a>
-                    <a href="{% url 'main:delete_product' product.pk %}" class="btn btn-danger btn-sm">
-                        Delete
-                    </a>
-                </td>
-            </tr>
     </tbody>
-    {% endfor %}
 </table>
 
 
     <br />
 
     <h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<script>
+    async function getProductsID() {
+        return fetch("{% url 'main:get_product_json_byID' %}").then((res) => res.json())
+    }
+
+    async function refreshProducts(){
+        document.getElementById("product_table").innerHTML= ""
+        const products = await getProductsID();
+        let htmlString =``
+
+        products.forEach((item) => {
+            htmlString += `
+                <tr>
+                    <td>${ item.fields.name }</td>
+                    <td>${ item.fields.amount }</td>
+                    <td>${ item.fields.description }</td>
+                    <td>${ item.fields.date_added }</td>
+                    <td>
+                        <button href="#" class="btn btn-primary btn-sm edit-product" data-id="${item.pk}">
+                            Edit
+                        </button>
+                        <button href="#" class="btn btn-danger btn-sm delete-product" data-id="${item.pk}">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            `
+        });
+
+        document.getElementById("product_table").innerHTML = htmlString;
+
+        document.querySelectorAll('.edit-product').forEach(button => {
+        button.addEventListener('click', function () {
+            // Dapatkan ID produk dari atribut data-id tombol yang diklik
+            const productId = button.getAttribute('data-id');
+
+            // Buat URL yang sesuai dengan permintaan Anda (misalnya, URL untuk mengedit produk)
+            const editUrl = `/edit-product/${productId}`;
+
+            // Navigasikan ke URL editUrl
+            window.location.href = editUrl;
+            });
+        });
+
+        // Tambahkan event listener untuk tombol "Delete"
+        document.querySelectorAll('.delete-product').forEach(button => {
+            button.addEventListener('click', function () {
+                // Dapatkan ID produk dari atribut data-id tombol yang diklik
+                const productId = button.getAttribute('data-id');
+
+                // Buat URL yang sesuai dengan permintaan Anda (misalnya, URL untuk menghapus produk)
+                const deleteUrl = `/delete-product/${productId}`;
+
+                // Navigasikan ke URL deleteUrl
+                window.location.href = deleteUrl;
+            });
+        });
+    }
+    refreshProducts();
+</script>
+    
 
 {% endblock content %}

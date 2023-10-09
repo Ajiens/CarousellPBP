@@ -20,6 +20,7 @@
             <a href="{% url 'main:create_product' %}">
                 <button type="button" class="btn btn-light">Add Product</button>
             </a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>      
             </div>
         </div>
     </div>
@@ -38,20 +39,93 @@
     </div>
 </nav>
 
-<div class="all-product d-flex flex-wrap align-content-start gap-4">
+
+<div id="product_content" class="all-product d-flex flex-wrap align-content-start gap-4">
+    <!-- GANTI DENGAN AJAX
     {% for product in products %}
     <div class="card" style="width: 18rem;">
         <img src="{% static 'pictures/product1.jpg' %}" class="card-img-top" alt="">
         <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-harga">Rp.{{product.amount}}</p>
-          <p class="card-text">{{product.description}}</p>
+          <h5 class="card-title">{item.fields.name}</h5>
+          <p class="card-harga">Rp.{item.fields..amount}</p>
+          <p class="card-text">{item.fields.description}</p>
           <a href="#" class="btn btn-primary" style="width: 100%;">Beli Sekarang</a>
         </div>
     </div>
-    {% endfor %}
+    {% endfor %} -->
 </div>
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+    async function refreshProducts() {
+    document.getElementById("product_content").innerHTML = ""
+    const products = await getProducts()
+    let htmlString = ``
+    products.forEach((item) => {
+        htmlString += `\n
+        <div class="card" style="width: 18rem;">
+            <img src="{% static 'pictures/product1.jpg' %}" class="card-img-top" alt="">
+            <div class="card-body">
+                <h5 class="card-title">${item.fields.name}</h5>
+                <p class="card-harga">Rp.${item.fields.amount}</p>
+                <p class="card-text">${item.fields.description}</p>
+                <a href="#" class="btn btn-primary" style="width: 100%;">Beli Sekarang</a>
+            </div>
+        </div>` 
+    })
+    
+    document.getElementById("product_content").innerHTML = htmlString
+    }
+
+    refreshProducts()
+
+    function addProduct() {
+            fetch("{% url 'main:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+
+    document.getElementById("button_add").onclick = addProduct
+</script>
 {% endblock content %}
