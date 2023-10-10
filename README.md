@@ -2,7 +2,33 @@ Nama    :   Alwan Takahashi Aditaman <br>
 NPM     :   2206828853 <br>
 Kelas   :   PBP E <br>
 
-================================== Tugas 5 ===============================================
+================================== Tugas 6 ==================================
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+   <br>**Asyncronous Programming**
+   - Multitasking, artinya request-request yang sedang berjalan dan membutuhkan waktu yang lama dapat dijalankan secara asinkronus tanpa menghentikan task sebelumnya
+   - Non-Blocking, artinya jika terdapat error atau membutuhkan waktu yang lama untuk diselesaikan program dapat memungkinkan dapat terus berjalan tanpa terbawa error
+   - Membutuhkan pemahaman yang cukup untuk dapat memahami, karena implementasinya yang cukup kompleks
+   <br>
+   <br>**Syncronous Programming**
+   - Runut, artinya setiap request atau tugas hanya dapat dieksekusi berurutan satu per satu. Jadi setiap ada task/tugas baru, untuk bisa mengerjakannya perlu menunggu task/tugas sebelumnya jika belum selesai
+   - Blocking, artinya jika ada task yang sedang berjalan dan terjadi kendala atau error, program setelahnya tidak dapat berjalan dan terhenti pada error tersebut
+   - Mudah dimengerti dan mudah untuk men-develop programnya, karena implementasinya yang hanya linear saja
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.<br>
+   Event Driving adalah paradigma pemrograman yang didasari dengan interaksi dengan usernya sehingga memungkinkan website yang dibangun dapat berinteraksi dengan user. Program tidak hanya dijalankan berdasarkan urutan baris kode saja, akan tetapi dapat 'meloncat-loncat' tergantung interaksi yang diberikan dari user. Jadi website akan menuggu sebuah event-handler dieksekusi kemudian memberikan suatu reaksi tertentu kepada user. Contoh event-driven yang saya implementasikan adalah dengan men-generate suatu button dengan sebuah event-handler dan melakukan sesuatu, contohnya adalah button edit dan delete pada setiap row didalam tabel. Kedua button tersebut dihubungkan dengan event-driving yang berbeda untuk melakukan edit product dan penghapusan product dari database
+    
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+   **Fetch API**
+   - Tidak perlu menggunakan library atau ekstensi tambahan karna fetch API merupakan bagian dari JavaScript
+   - Lebih ringan untuk digunakan dibandingkan dengan menggunakan jQuery
+   - Penulisan kode yang mudah dipahami sehinggga mudah untuk mempelajarinya
+   **jQuery**
+   - Mendukung pada browser terdahulu
+   - Memerulkan import tambahan sehingga membutuhkan kapasitas yang lebih besar dibandingkan Fetch API
+   - 
+6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+================================== Tugas 5 ==================================
 1.  Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya. <br>
     **Universal Selector** ->
     Dengan menggunakan tanda * dalam formatting css, maka semua konten yang ada di html akan berubah.
