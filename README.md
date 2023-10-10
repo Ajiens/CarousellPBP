@@ -2,32 +2,57 @@ Nama    :   Alwan Takahashi Aditaman <br>
 NPM     :   2206828853 <br>
 Kelas   :   PBP E <br>
 
-================================== Tugas 6 ==================================
+================================== Tugas 6 ================================== <br>
 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
    <br>**Asyncronous Programming**
    - Multitasking, artinya request-request yang sedang berjalan dan membutuhkan waktu yang lama dapat dijalankan secara asinkronus tanpa menghentikan task sebelumnya
    - Non-Blocking, artinya jika terdapat error atau membutuhkan waktu yang lama untuk diselesaikan program dapat memungkinkan dapat terus berjalan tanpa terbawa error
    - Membutuhkan pemahaman yang cukup untuk dapat memahami, karena implementasinya yang cukup kompleks
    <br>
-   <br>**Syncronous Programming**
+   <br> **Syncronous Programming**
    - Runut, artinya setiap request atau tugas hanya dapat dieksekusi berurutan satu per satu. Jadi setiap ada task/tugas baru, untuk bisa mengerjakannya perlu menunggu task/tugas sebelumnya jika belum selesai
    - Blocking, artinya jika ada task yang sedang berjalan dan terjadi kendala atau error, program setelahnya tidak dapat berjalan dan terhenti pada error tersebut
    - Mudah dimengerti dan mudah untuk men-develop programnya, karena implementasinya yang hanya linear saja
-
+<br>
 2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.<br>
    Event Driving adalah paradigma pemrograman yang didasari dengan interaksi dengan usernya sehingga memungkinkan website yang dibangun dapat berinteraksi dengan user. Program tidak hanya dijalankan berdasarkan urutan baris kode saja, akan tetapi dapat 'meloncat-loncat' tergantung interaksi yang diberikan dari user. Jadi website akan menuggu sebuah event-handler dieksekusi kemudian memberikan suatu reaksi tertentu kepada user. Contoh event-driven yang saya implementasikan adalah dengan men-generate suatu button dengan sebuah event-handler dan melakukan sesuatu, contohnya adalah button edit dan delete pada setiap row didalam tabel. Kedua button tersebut dihubungkan dengan event-driving yang berbeda untuk melakukan edit product dan penghapusan product dari database
-    
+<br>    
 3. Jelaskan penerapan asynchronous programming pada AJAX.
+   * Mengirimkan request. Dengan menggunakan AJAX memungkinkan pengguna dapat terus berinteraksi. Hal tersebut karena pada saat user melakukan sebuah request (contoh: memencet button) AJAX akan mengirimkan request tersebut secara asinkron ke latar belakang layar dan melakukan sesuatu yang dikehendaki oleh developer.
+   * Menerima response. Selain mengirimkan request, AJAX juga dapat menerima response yang dikirimkan oleh user dan memprosesnya dilatarbelakang sekaligus merefresh atau memperbarui field tertentu saja. Dengan metode ini, tentunya dapat meningkatkan engagement user untuk tetap dapat berinteraksi dengan user tanpa harus merefresh seluruh halaman tersebut.
+   * Memperbarui tampilan. Dengan metode asinkronus yang diterapkan pada AJAX, dapat memungkikan pengguna untuk dapat terus berinteraksi dengan websitenya tanpa harus melakukan refresh setiap kali ada perubahan.
+<br>
 4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
-   **Fetch API**
+   <br>**Fetch API**
    - Tidak perlu menggunakan library atau ekstensi tambahan karna fetch API merupakan bagian dari JavaScript
    - Lebih ringan untuk digunakan dibandingkan dengan menggunakan jQuery
    - Penulisan kode yang mudah dipahami sehinggga mudah untuk mempelajarinya
-   **jQuery**
+   <br>**jQuery**
    - Mendukung pada browser terdahulu
    - Memerulkan import tambahan sehingga membutuhkan kapasitas yang lebih besar dibandingkan Fetch API
    - 
+<br>
+Jika dinilai dari POV saya sendiri yang mana sebagai seorang dalam pemrograman berbasis website saya akan menggunakan Fetch API. Alasannya adalah akrena fetch API tidak perlu menggunakan ekstensi tambahan sehingga lebih ringan untuk digunakan sebagai metode pembelajaran. Selain itu, saya juga menilai bahwa dengan menggunakkan Fetch API juga dapat memudahkan saya sebagai pemula. Namun, tidak menutup kemungkinan bahwa kedepannya saya menggunakan jQuery untuk mengembahkan sebuah website. Dengan menggunakan jQuery, memungkinkan penerapan fitur-fitur yang lebih kompleks lebih fleksibel dibandingkan Fetch API. Selain itu, jika melihat dari sisi pengguna jQuery dapat mencakup lebih banyak orang dibandingkan Fetch API. Hal tersebut karena jQuery dapat mensupport  website dengan versi lawas, mungkin saja user/pengakses website yang mengunjungi website saya mempunyai berbagai macam latar belakang.
+
 6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+   <br> **AJAX GET**<br>
+   * Lakukan pengambilan task menggunakan AJAX GET. <br>
+      Untuk dapat melakukannya, pertama yang dapat dilakukan adalah dengan membuat fungsi didalam tag ```<script></script>```. Lalu di dalam fungsi itu kita dapat memangil sebuah fungsi yang mereturn data dari database yang ada di dalam views.py. Lalu kita dapat menggunakan fetch API ke data JSON secara asynchronus. Lalu tidak lupa data yang diretrun tersebut diubah menjadi objek JavaScript. <br>
+   * Ubahlah kode cards data item agar dapat mendukung AJAX GET.<br>
+      Untuk dapat melakukannya, hal pertama yang dilakukan adalah dengan membuat sebuah function baru pada AJAX untuk dipanggil secara asynchronous nantinya. Setelah itu buat tag pada html dengan suatu id. Lalu dari tag dengan id tersebut diambil dengan AJAX, yaitu dengan: ```document.getElementById("<NamaID>").innerHTML = ""```. Setelah itu ambil data dengan memanggil fungsi yang sudah didefinisikan sebelumnya. Setelah itu dari data yang diambil tersebut dilakukan for loop untuk melakukan assign ke variabel htmlString. Lalu dari variabel htmlString tersebut dikembalikan dengan menggunakan ```document.getElementById("product_table").innerHTML = htmlString```. Setelah itu panggil fungsi tersebut didalam  tag ```<script></script>```. <br>
+   <br>
+   **AJAX POST** <br>
+   *  Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item. <br>
+        Untuk menambahkan tombol, kita hanya perlu menambahkan sebuah tombol yang kita inginkan kedalam body file.html. Lalu dari tombol tersebut dilakukan event-driving dengan cara menambahkan id pada tag html tersebut dan menggunakan ```document.getElementById("product_table")``` untuk menargetkan id tersebut. Event driving yang dilakukan adalah dengan mengirimkan request berupa POST. <br>
+   * Buatlah fungsi view baru untuk menambahkan item baru ke dalam basis data. <br>
+      untuk dapat melakukan ini adalah dengan membuat sebuah fungsi pada views.py. Pada views.py pertama kita perlu mengambil data yang ada di database dengan cara: ```product_item = Product.objects.all()```. Setelah itu, kita perlu mereturn data tersebut berupa json sebagai response dari permintaan tersebut dengan cara: ```return HttpResponse(serializers.serialize('json', product_item))```. <br>
+   * Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.
+     Setelah itu kita perlu menambahkan path ddialam urls.py dengan cara: ```path('get-product/', get_product_json, name='get_product_json'),```. <br>
+   * Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/. <br>
+         Untuk dapat melakukannya, hal pertama yang dilakukan adalah dengan membuat sebuah function baru pada AJAX untuk dipanggil secara asynchronous nantinya. Setelah itu buat tag pada html dengan suatu id. Lalu dari tag dengan id tersebut diambil dengan AJAX, yaitu dengan: ```document.getElementById("<NamaID>").innerHTML = ""```. Setelah itu ambil data dengan memanggil fungsi yang sudah didefinisikan sebelumnya dan lakukan fetch.<br>
+   * Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan. <br>
+      Untuk dapat melakukan ini, kita hanya perlu melakukan pemanggilan fungsi AJAX yang menampilkan data yang diubah. Hal tersebut dilakukan agar pengguna tidak perlu melakukan refresh seluruh paragraf untuk melihat perubahan yang ada.<br>
+      
 ================================== Tugas 5 ==================================
 1.  Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya. <br>
     **Universal Selector** ->
