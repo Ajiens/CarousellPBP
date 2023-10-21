@@ -1,2 +1,2 @@
 release: django-admin migrate --noinput
-web: gunicorn CarousellPBP.wsgi
+web: gunicorn item_list.wsgi
